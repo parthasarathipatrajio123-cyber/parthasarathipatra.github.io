@@ -491,51 +491,122 @@ main {
 }
 
 /* ===== CONTACT GRID ===== */
-.contact-grid {
+/* ===== CONTACT TILES (2x2 uniform grid) ===== */
+.contact-tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.contact-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 16px;
+  min-height: 180px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+  transition: transform 0.22s, box-shadow 0.22s;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.contact-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.26);
+  text-decoration: none;
+  color: #fff;
+}
+
+.tile-whatsapp  { background: linear-gradient(135deg, #075e54, #25d366); }
+.tile-email     { background: linear-gradient(135deg, #007a74, #0d5ea6); }
+.tile-facebook  { background: linear-gradient(135deg, #145DB2, #1877F2); }
+.tile-linkedin  { background: linear-gradient(135deg, #004182, #0a66c2); }
+
+.tile-icon {
+  font-size: 2.4rem;
+  display: block;
+  line-height: 1;
+}
+
+.tile-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.80);
+}
+
+/* Default tile value */
+.tile-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-align: center;
+}
+
+/* WhatsApp — slightly larger, phone number stays together */
+.tile-whatsapp .tile-value {
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* Email — split cleanly at the <br/> we placed in HTML */
+.tile-email .tile-value {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  line-height: 1.75;
+}
+
+/* Facebook */
+.tile-facebook .tile-value { font-size: 0.88rem; }
+
+/* LinkedIn */
+.tile-linkedin .tile-value { font-size: 0.82rem; overflow-wrap: anywhere; }
+
+/* ===== INSTITUTIONAL AFFILIATION BANNER ===== */
+.affiliation-banner {
+  display: flex;
+  align-items: center;
   gap: 18px;
+  background: linear-gradient(135deg, #1a0050, #5e17eb);
+  color: #fff;
+  border-radius: 14px;
+  padding: 22px 26px;
+  box-shadow: 0 4px 16px rgba(94,23,235,0.25);
 }
 
-.contact-card {
-  padding: 18px 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(30,0,80,0.09);
+.affiliation-banner .tile-icon {
+  font-size: 2.4rem;
+  flex-shrink: 0;
 }
 
-.contact-card:nth-child(1) { background: linear-gradient(135deg, #f0ebff, #e0d8ff); border-top: 4px solid var(--purple); }
-.contact-card:nth-child(2) { background: linear-gradient(135deg, #e6f9f8, #d0f0ed); border-top: 4px solid var(--teal); }
-.contact-card:nth-child(3) { background: linear-gradient(135deg, #fff3e0, #ffe0c2); border-top: 4px solid var(--orange); }
-.contact-card:nth-child(4) { background: linear-gradient(135deg, #fce4ec, #f8d0e0); border-top: 4px solid var(--magenta); }
-.contact-card:nth-child(5) { background: linear-gradient(135deg, #e3f2fd, #d0e8fa); border-top: 4px solid var(--blue); }
-.contact-card:nth-child(6) { background: linear-gradient(135deg, #fff8e1, #ffeebb); border-top: 4px solid var(--gold); }
-.contact-card:nth-child(7) { background: linear-gradient(135deg, #f0ebff, #e0d8ff); border-top: 4px solid var(--purple); }
-
-.contact-card .contact-label {
-  font-size: 0.73rem;
+.affil-label {
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--dark);
-  margin-bottom: 7px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 4px;
 }
 
-.contact-card .contact-value {
+.affil-value {
   font-size: 0.95rem;
-  color: #2c2c2c;
-}
-
-/* Email card spans full width of the grid */
-.email-card {
-  grid-column: 1 / -1;
-}
-
-/* Email text fits cleanly inside */
-.contact-card .email-value {
-  font-size: 1rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.8;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.6;
 }
 
 /* ===== BLOG CARDS ===== */
