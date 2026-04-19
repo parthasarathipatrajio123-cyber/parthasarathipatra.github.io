@@ -525,12 +525,17 @@ main {
   color: #2c2c2c;
 }
 
-/* Email wraps fully inside its card */
+/* Email card spans full width of the grid */
+.email-card {
+  grid-column: 1 / -1;
+}
+
+/* Email text fits cleanly inside */
 .contact-card .email-value {
-  font-size: 0.83rem;
-  word-break: break-all;
+  font-size: 1rem;
+  word-break: break-word;
   overflow-wrap: break-word;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* ===== BLOG CARDS ===== */
