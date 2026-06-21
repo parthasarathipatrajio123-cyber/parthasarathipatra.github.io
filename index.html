@@ -21,13 +21,80 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — text only, no photo -->
   <section class="hero">
-    <img src="IMG_5122.JPG" alt="Partha Sarathi Patra" class="hero-photo" />
     <h1>Partha Sarathi Patra</h1>
     <p class="tagline">PhD Research Fellow &mdash; South Asian Literature</p>
     <p class="institution">Department of English, Jadavpur University</p>
   </section>
+
+  <!-- PHOTO CAROUSEL (style: Ritam Dutta) -->
+  <section class="rslider-section">
+    <div class="rslider-wrap">
+
+      <!-- Left arrow -->
+      <button class="rslider-arrow rslider-prev" onclick="rsMove(-1)" aria-label="Previous">&#8249;</button>
+
+      <!-- Slides -->
+      <div class="rslider-stage">
+
+        <div class="rslide active">
+          <img src="gallery-2.png" alt="Convocation ceremony — Jadavpur University" />
+          <div class="rslide-caption">Convocation ceremony — Jadavpur University</div>
+        </div>
+
+        <div class="rslide">
+          <img src="gallery-3.jpg" alt="Conducting a session on Literature and Themes" />
+          <div class="rslide-caption">Conducting a session on Literature &amp; Themes</div>
+        </div>
+
+        <div class="rslide">
+          <img src="gallery-4.jpg" alt="A formal occasion" />
+          <div class="rslide-caption">A formal occasion — dressed for the moment</div>
+        </div>
+
+        <div class="rslide">
+          <img src="gallery-1.jpg" alt="With students in the classroom at Jadavpur University" />
+          <div class="rslide-caption">With students in the classroom at Jadavpur University</div>
+        </div>
+
+        <div class="rslide">
+          <img src="gallery-5.jpg" alt="With friends on the university campus lawn" />
+          <div class="rslide-caption">Moments with friends on the university campus lawn</div>
+        </div>
+
+      </div>
+
+      <!-- Right arrow -->
+      <button class="rslider-arrow rslider-next" onclick="rsMove(1)" aria-label="Next">&#8250;</button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="rslider-dots">
+      <button class="rsdot active" onclick="rsGoTo(0)" aria-label="Slide 1"></button>
+      <button class="rsdot" onclick="rsGoTo(1)" aria-label="Slide 2"></button>
+      <button class="rsdot" onclick="rsGoTo(2)" aria-label="Slide 3"></button>
+      <button class="rsdot" onclick="rsGoTo(3)" aria-label="Slide 4"></button>
+      <button class="rsdot" onclick="rsGoTo(4)" aria-label="Slide 5"></button>
+    </div>
+  </section>
+
+  <script>
+    let rsIdx = 0, rsTotal = 5;
+    let rsTimer = setInterval(() => rsMove(1), 5000);
+
+    function rsGoTo(n) {
+      document.querySelectorAll('.rslide')[rsIdx].classList.remove('active');
+      document.querySelectorAll('.rsdot')[rsIdx].classList.remove('active');
+      rsIdx = (n + rsTotal) % rsTotal;
+      document.querySelectorAll('.rslide')[rsIdx].classList.add('active');
+      document.querySelectorAll('.rsdot')[rsIdx].classList.add('active');
+      clearInterval(rsTimer);
+      rsTimer = setInterval(() => rsMove(1), 5000);
+    }
+    function rsMove(d) { rsGoTo(rsIdx + d); }
+  </script>
 
   <!-- MAIN CONTENT -->
   <main>

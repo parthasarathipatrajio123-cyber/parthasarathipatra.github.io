@@ -68,14 +68,14 @@ nav ul li a.active {
   text-decoration: none;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (text only) ===== */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 70px 20px 55px;
   background: linear-gradient(135deg, #1a0050 0%, #5e17eb 35%, #c0166a 65%, #e8560a 100%);
   color: #fff;
   position: relative;
@@ -90,25 +90,12 @@ nav ul li a.active {
   pointer-events: none;
 }
 
-.hero-photo {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-  border: 5px solid rgba(255,255,255,0.9);
-  box-shadow: 0 0 0 8px rgba(255,255,255,0.15), 0 8px 30px rgba(0,0,0,0.4);
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-
 .hero h1 {
   font-family: 'Merriweather', serif;
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   position: relative;
   z-index: 1;
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -128,6 +115,124 @@ nav ul li a.active {
   font-style: italic;
   position: relative;
   z-index: 1;
+}
+
+/* ===== RITAM DUTTA-STYLE CENTERED CAROUSEL ===== */
+.rslider-section {
+  background: #f5f0ff;
+  padding: 52px 0 40px;
+}
+
+.rslider-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+}
+
+/* The image stage */
+.rslider-stage {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(30,0,80,0.18);
+  background: #1a1a2e;
+  min-height: 200px;
+}
+
+.rslide {
+  display: none;
+  position: relative;
+}
+
+.rslide.active {
+  display: block;
+  animation: rsFadeIn 0.5s ease;
+}
+
+@keyframes rsFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rslide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Caption strip — semi-transparent dark bar at bottom */
+.rslide-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(50, 50, 60, 0.78);
+  color: #fff;
+  font-size: 0.93rem;
+  padding: 12px 20px;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* Arrows — large chevrons outside the image */
+.rslider-arrow {
+  background: none;
+  border: none;
+  color: #5e17eb;
+  font-size: 3.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 18px;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.15s;
+  font-weight: 300;
+  user-select: none;
+}
+
+.rslider-arrow:hover {
+  color: #c0166a;
+  transform: scale(1.15);
+}
+
+/* Dots */
+.rslider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.rsdot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #5e17eb;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.22s, transform 0.22s;
+}
+
+.rsdot.active {
+  background: #5e17eb;
+  transform: scale(1.35);
+}
+
+.rsdot:hover:not(.active) {
+  background: rgba(94,23,235,0.3);
+}
+
+@media (max-width: 600px) {
+  .rslide img { height: 240px; }
+  .rslider-arrow { font-size: 2.4rem; padding: 0 8px; }
+  .hero h1 { font-size: 1.9rem; }
 }
 
 /* ===== PAGE HEADER (inner pages) ===== */
@@ -829,6 +934,7 @@ main {
   color: rgba(255,255,255,0.65) !important;
   font-style: italic;
 }
+
 
 /* ===== FOOTER ===== */
 footer {
