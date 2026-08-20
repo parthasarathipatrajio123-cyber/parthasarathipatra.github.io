@@ -27,14 +27,78 @@
 
   <main>
 
-    <!-- WHY PUBLISHING -->
+    <!-- WHY I WANT TO WORK IN PUBLISHING -->
     <section class="section">
       <h2 class="section-title">Why I want to work in publishing</h2>
-      <div class="pdf-embed-wrap">
-        <iframe src="Why_Publishing.pdf" title="Why Publishing" class="pdf-embed"></iframe>
-      </div>
+
+      <!-- PHOTO-STYLE CAROUSEL (same pattern as the homepage) -->
+      <section class="rslider-section design-carousel">
+        <div class="rslider-wrap">
+
+          <button class="rslider-arrow rslider-prev" onclick="dsMove(-1)" aria-label="Previous">&#8249;</button>
+
+          <div class="rslider-stage">
+
+            <div class="rslide active">
+              <img src="design-slides/slide-1.png" alt="Why I want to work in publishing — page 1" />
+            </div>
+
+            <div class="rslide">
+              <img src="design-slides/slide-2.png" alt="Why I want to work in publishing — page 2" />
+            </div>
+
+            <div class="rslide">
+              <img src="design-slides/slide-3.png" alt="Why I want to work in publishing — page 3" />
+            </div>
+
+            <div class="rslide">
+              <img src="design-slides/slide-4.png" alt="Why I want to work in publishing — page 4" />
+            </div>
+
+            <div class="rslide">
+              <img src="design-slides/slide-5.png" alt="Why I want to work in publishing — page 5" />
+            </div>
+
+            <div class="rslide">
+              <img src="design-slides/slide-6.png" alt="Why I want to work in publishing — page 6" />
+            </div>
+
+          </div>
+
+          <button class="rslider-arrow rslider-next" onclick="dsMove(1)" aria-label="Next">&#8250;</button>
+
+        </div>
+
+        <div class="rslider-dots">
+          <button class="rsdot active" onclick="dsGoTo(0)" aria-label="Slide 1"></button>
+          <button class="rsdot" onclick="dsGoTo(1)" aria-label="Slide 2"></button>
+          <button class="rsdot" onclick="dsGoTo(2)" aria-label="Slide 3"></button>
+          <button class="rsdot" onclick="dsGoTo(3)" aria-label="Slide 4"></button>
+          <button class="rsdot" onclick="dsGoTo(4)" aria-label="Slide 5"></button>
+          <button class="rsdot" onclick="dsGoTo(5)" aria-label="Slide 6"></button>
+        </div>
+      </section>
+
+      <script>
+        let dsIdx = 0, dsTotal = 6;
+        let dsTimer = setInterval(() => dsMove(1), 5000);
+
+        function dsGoTo(n) {
+          const slides = document.querySelectorAll('.design-carousel .rslide');
+          const dots = document.querySelectorAll('.design-carousel .rsdot');
+          slides[dsIdx].classList.remove('active');
+          dots[dsIdx].classList.remove('active');
+          dsIdx = (n + dsTotal) % dsTotal;
+          slides[dsIdx].classList.add('active');
+          dots[dsIdx].classList.add('active');
+          clearInterval(dsTimer);
+          dsTimer = setInterval(() => dsMove(1), 5000);
+        }
+        function dsMove(d) { dsGoTo(dsIdx + d); }
+      </script>
+
       <a class="pdf-download-btn" href="Why_Publishing.pdf" target="_blank" rel="noopener">
-        Open / Download PDF
+        Open / Download Full PDF
       </a>
     </section>
 

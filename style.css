@@ -235,6 +235,20 @@ nav ul li a.active {
   .hero h1 { font-size: 1.9rem; }
 }
 
+/* ===== DESIGN PAGE CAROUSEL (portrait slides, shown in full) ===== */
+.design-carousel { background: transparent; padding: 8px 0 0; }
+.design-carousel .rslider-stage { max-width: 420px; }
+.design-carousel .rslide img {
+  height: 640px;
+  object-fit: contain;
+  object-position: center;
+  background: #1a1a2e;
+}
+
+@media (max-width: 600px) {
+  .design-carousel .rslide img { height: 420px; }
+}
+
 /* ===== PAGE HEADER (inner pages) ===== */
 .page-header {
   background: linear-gradient(135deg, #1a0050 0%, #5e17eb 40%, #c0166a 75%, #e8560a 100%);
